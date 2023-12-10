@@ -1,12 +1,25 @@
 import  express  from "express";
 import dotenv from 'dotenv';
 import connectDB from "./config/db.js";
-
+import morgan from "morgan";
+import "express-async-errors";
 dotenv.config();
 
 connectDB()
 const app = express();
-app.use(express.json())
+//middleware
+app.use(express.json());
+app.use(morgan("dev"))
+
+//route import
+import userRoute from "./routes/user.routes.js";
+import  errMiddlewareHandler from "./middleware/err.middleware.js";
+//routes
+app.use("/api/v1/user",userRoute)
+
+
+//error Middleware Handler
+app.use(errMiddlewareHandler)
 app.get('/',(req,res)=>{
     res.send(`<h1>Hii this is Job Portal Application`);
 })
