@@ -14,10 +14,12 @@ const errMiddlewareHandler =(err,req,res,next)=>{
         }
         //duplicate error
         if(err.code && err.code === 11000){
-            defaultErrors.statusCode=400
-            defaultErrors.message = `${Object.keys(err.keyValue)} field has to be unique`;
+            defaultErrors.statusCode= defaultErrors.statusCode || 400
+            defaultErrors.message = `${Object.keys(err.keyValue)} field has to be unique this is already registered you can login`;
            // console.log(defaultErrors.message);
         }
-res.status(defaultErrors.statusCode=400).json({message:defaultErrors.message})
+res.status(defaultErrors.statusCode=400).json({
+    statusCode:defaultErrors.statusCode,
+    message:defaultErrors.message})
 }
 export default errMiddlewareHandler;

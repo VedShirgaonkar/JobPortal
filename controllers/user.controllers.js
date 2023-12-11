@@ -22,7 +22,7 @@ const userRegisterController =async(req,res,next) =>{
 //         message:"Email is already taken"
 //       }    )
  //   }
-    await User.create({
+   const user =  await User.create({
         name,
         lastName,
         email,
@@ -30,7 +30,8 @@ const userRegisterController =async(req,res,next) =>{
     })
     res.status(200).send({
         success:true,
-        message:"User Registered SuccessFully"
+        message:"User Registered SuccessFully",
+        user
     })
     
 }
