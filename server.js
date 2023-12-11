@@ -14,9 +14,10 @@ app.use(morgan("dev"))
 //route import
 import userRoute from "./routes/user.routes.js";
 import  errMiddlewareHandler from "./middleware/err.middleware.js";
+import updateUserRoute from "./routes/updateUser.routes.js"
 //routes
 app.use("/api/v1/user",userRoute)
-
+app.use("/api/v1/update",updateUserRoute)
 
 //error Middleware Handler
 app.use(errMiddlewareHandler)
