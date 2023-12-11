@@ -4,7 +4,7 @@ const jobSchema = new mongoose.Schema(
   {
     company: {
       type: String,
-      requied: [true, "Companay name is require"],
+      required: [true, "Companay name is require"],
     },
     position: {
       type: String,
@@ -27,7 +27,7 @@ const jobSchema = new mongoose.Schema(
       required: [true, "Work location is required"],
     },
     createdBy: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
   },

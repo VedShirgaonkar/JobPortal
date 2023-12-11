@@ -15,9 +15,11 @@ app.use(morgan("dev"))
 import userRoute from "./routes/user.routes.js";
 import  errMiddlewareHandler from "./middleware/err.middleware.js";
 import updateUserRoute from "./routes/updateUser.routes.js"
+import jobRoute from "./routes/jobs.route.js"
 //routes
 app.use("/api/v1/user",userRoute)
 app.use("/api/v1/update",updateUserRoute)
+app.use("/api/v1/job",jobRoute)
 
 //error Middleware Handler
 app.use(errMiddlewareHandler)
