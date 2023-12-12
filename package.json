@@ -16,9 +16,13 @@
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
+    "moment": "^2.29.4",
     "mongoose": "^8.0.2",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.2",
+    "swagger-doc": "^0.3.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
     "validator": "^13.11.0"
   }
 }

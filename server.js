@@ -1,3 +1,5 @@
+import  swaggerUi from "swagger-ui-express";
+import swagerdoc from "swagger-jsdoc";
 import  express  from "express";
 import dotenv from 'dotenv';
 import connectDB from "./config/db.js";
@@ -6,6 +8,21 @@ import "express-async-errors";
 dotenv.config();
 
 connectDB()
+//swagger api config
+const options = {
+    definition:{
+        openapi:"3.0.0",
+    info:{
+        title:'Job Portal Application',
+        description:'Node Express js Job Portal Application'
+    },
+    servers:[{
+        url:"http://localhost:8080"
+    }]
+    },
+    apis: ["./routes/*.js"],
+};
+const spec = swagerdoc(options)
 const app = express();
 //middleware
 app.use(express.json());
@@ -20,6 +37,9 @@ import jobRoute from "./routes/jobs.route.js"
 app.use("/api/v1/user",userRoute)
 app.use("/api/v1/update",updateUserRoute)
 app.use("/api/v1/job",jobRoute)
+
+//home route
+app.use("/api-doc",swaggerUi.serve,swaggerUi.setup(spec));
 
 //error Middleware Handler
 app.use(errMiddlewareHandler)
