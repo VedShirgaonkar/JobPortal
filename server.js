@@ -17,7 +17,7 @@ const options = {
         description:'Node Express js Job Portal Application'
     },
     servers:[{
-        url:"https://jobportal-jcej.onrender.com/"
+        url:"https://jobportal-jcej.onrender.com"
     }]
     },
     apis: ["./routes/*.js"],
